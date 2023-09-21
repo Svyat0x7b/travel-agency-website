@@ -1,57 +1,99 @@
 import { json, useLoaderData } from 'react-router-dom';
-import Navigation from '../components/Navigation'
+import Navigation from '../components/Navigation';
 import ToursHeader from '../components/ToursHeader';
 import ToursList from '../components/ToursList';
 import Footer from '../components/Footer';
 import '../pages/Main.css';
+import { checkAuthLoader, getAuthToken } from '../utils/auth';
 
 const DUMMY_TOURS = [
-  {
-    title: 'Trip in Dubai City',
-    destination: 'Dubai',
-    durability: 7,
-    rating: 4.8,
-    id: 't1',
-    price: 1200,
-  },
-  {
-    title: 'Trip in Kyiv City',
-    destination: 'Kyiv',
-    durability: 5,
-    rating: 4.9,
-    id: 't2',
-    price: 600,
-    image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Ftour&psig=AOvVaw2A6dPF6BcTwc_Zv4ze5DX2&ust=1687272376010000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJjYwMjJz_8CFQAAAAAdAAAAABAD',
-  }
+    {
+        name: 'Trip in Dubai City',
+        destination: 'Dubai',
+        date: new Date(2022, 1, 4),
+        durability: 7,
+        rating: 4.8,
+        id: 't1',
+        price: 1200,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        name: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 4),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        name: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 4),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        name: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 4),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        name: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 4),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
 ];
 
-
 const Tours = () => {
-  // const tours = useLoaderData();
+    const tours = useLoaderData();
 
-  return (
-    <div>
-        <ToursHeader/>
-        <ToursList tours={DUMMY_TOURS}/>
-        <Footer/>
-    </div>
-  )
-}
+    return (
+        <div>
+            <ToursHeader />
+            <ToursList tours={tours} />
+            <Footer />
+        </div>
+    );
+};
 
 export default Tours;
 
 export const loader = async (params, request) => {
-  const response = await fetch('http://localhost:8080/tours');
+    checkAuthLoader();
+    console.log('token exist!');
+    const token = getAuthToken;
+    const headers = new Headers();
+    headers.append('Authorization', `Bearer ${token}`);
 
-  if (!response.ok) {
-    throw json(
-      { message: 'Could not fetch tours.' },
-      {
-        status: 500,
-      }
-    );
-  } else {
-    const resData = await response.json();
-    return resData.tours;
-  }
-}
+    const response = await fetch('http://localhost:8081/api/tours/', {
+        metod: 'GET',
+        headers: headers,
+    });
+
+    if (!response.ok) {
+        throw json(
+            { message: 'Could not fetch tours.' },
+            {
+                status: 500,
+            },
+        );
+    } else {
+        const resData = await response.json();
+        return resData.tours;
+    }
+};

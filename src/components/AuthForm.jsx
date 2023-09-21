@@ -11,6 +11,18 @@ const AuthForm = () => {
     <div className="auth-form-wrapper">
       <Form className="auth-form">
         <h1>{isLogin ? 'Log in' : 'Sign up'}</h1>
+        {!isLogin && <p>
+          <label htmlFor="name">Name</label>
+          <input id="name" type="text" name="name" required />
+        </p>}
+        {!isLogin && <p>
+          <label htmlFor="surname">Surname</label>
+          <input id="surname" type="text" name="surname" required />
+        </p>}
+        {!isLogin && <p>
+          <label htmlFor="phone">Phone Number</label>
+          <input id="phone" type="text" name="phone" required />
+        </p>}
         <p>
           <label htmlFor="email">Email</label>
           <input id="email" type="email" name="email" required />

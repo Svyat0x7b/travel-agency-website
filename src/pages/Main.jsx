@@ -11,40 +11,73 @@ import Footer from '../components/Footer';
 import './Main.css';
 
 const DUMMY_TOURS = [
-  {
-    title: 'Trip in Dubai City',
-    destination: 'Dubai',
-    durability: 7,
-    rating: 4.8,
-    id: 't1',
-    price: 1200,
-  },
-  {
-    title: 'Trip in Kyiv City',
-    destination: 'Kyiv',
-    durability: 5,
-    rating: 4.9,
-    id: 't2',
-    price: 600,
-    image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Funsplash.com%2Fs%2Fphotos%2Ftour&psig=AOvVaw2A6dPF6BcTwc_Zv4ze5DX2&ust=1687272376010000&source=images&cd=vfe&ved=0CBEQjRxqFwoTCJjYwMjJz_8CFQAAAAAdAAAAABAD',
-  }
+    {
+        title: 'Trip in Dubai City',
+        destination: 'Dubai',
+        date: new Date(2022, 1, 17),
+        durability: 7,
+        rating: 4.8,
+        id: 't1',
+        price: 1200,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        title: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 17),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        title: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 17),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        title: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 17),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
+    {
+        title: 'Trip in Kyiv City',
+        destination: 'Kyiv',
+        date: new Date(2022, 1, 17),
+        durability: 5,
+        rating: 4.9,
+        id: 't2',
+        price: 600,
+        image: 'https://images.pexels.com/photos/1530259/pexels-photo-1530259.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
+    },
 ];
 
 function Main() {
-  const tours = useLoaderData();
-  return (
-    <div>
-        <MainHeader/>
-        <MainSection1/>
-        <MainSection2/>
-        <MainSection3 tours={DUMMY_TOURS}/>
-        <MainSection4/>
-        <MainSection5/>
-        <MainSection6/>
-        <MainSection7/>
-        <Footer/>
-    </div>
-  )
+    const tours = useLoaderData();
+    return (
+        <div>
+            <MainHeader />
+            <MainSection1 />
+            <MainSection2 />
+            <MainSection3 tours={DUMMY_TOURS} />
+            <MainSection4 />
+            <MainSection5 />
+            <MainSection6 />
+            <MainSection7 />
+            <Footer />
+        </div>
+    );
 }
 
-export default Main
+export default Main;

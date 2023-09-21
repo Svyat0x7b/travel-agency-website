@@ -9,33 +9,33 @@ const TourBookingSection = () => {
           <form action="#" className="booking-now__form">
             <div className="name-inputs">
                 <div className="firstname-input">
-                    <label for="firstname">Firstname</label>
+                    <label htmlFor="firstname">Firstname</label>
                     <input id="firstname" type="text"/>
                 </div>
                 <div className="lastname-input">
-                    <label for="lastname">Lastname</label>
+                    <label htmlFor="lastname">Lastname</label>
                     <input id="lastname" type="text"/>
                 </div>
             </div>
             <div className="email-input">
-                <label for="email">E-mail</label>
+                <label htmlFor="email">E-mail</label>
                 <input type="email" id="email" placeholder="example@gmail.com"/>
             </div>
             <div className="number-input">
-                <label for="number">Telephone Number</label>
+                <label htmlFor="number">Telephone Number</label>
                 <input type="tel" id="number" required placeholder="380931377123"/>
             </div>
             <div className="card-number-input">
-              <label for="card-number">Card Number</label>
+              <label htmlFor="card-number">Card Number</label>
               <input type="text" id="card-number"  placeholder="XXXX-XXXX-XXXX-XXXX"/>
           </div>
           <div className="card-detail-inputs">
             <div className="date-input">
-                <label for="date">Date</label>
+                <label htmlFor="date">Date</label>
                 <input id="date" type="text" placeholder="06/23"/>
             </div>
             <div className="cvv-input">
-                <label for="cvv">Cvv</label>
+                <label htmlFor="cvv">Cvv</label>
                 <input id="cvv" type="password" placeholder="123"/>
             </div>
         </div>

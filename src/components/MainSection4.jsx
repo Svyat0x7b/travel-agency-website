@@ -1,4 +1,5 @@
-import React from 'react'
+import React from 'react';
+import main4Img from '../assets/img/tour-img/main-section-4.jpg';
 import '../pages/Main.css';
 
 const MainSection4 = () => {
@@ -12,7 +13,9 @@ const MainSection4 = () => {
         <p className="main-4__left__title">In Room Dinning</p>
         <button className="main-4__left__btn">Learn More {">>"} </button>
       </section>
-      <section className="main-4__right"></section>
+      <section className="main-4__right">
+        <img src={main4Img} alt="compas in one hand" />
+      </section>
     </main>
   )
 }

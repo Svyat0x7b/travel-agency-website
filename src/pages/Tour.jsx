@@ -35,19 +35,19 @@ const Tour = () => {
 
 export default Tour;
 
-// export const loader = async (params, request) => {
-//   const id = params.tourId;
-//   const response = await fetch('http://localhost:8080/tours/' + id);
+export const loader = async (params, request) => {
+  const id = params.tourId;
+  const response = await fetch('http://localhost:8080/api/tours/' + id);
 
-//   if (!response.ok) {
-//     throw json(
-//       { message: 'Could not fetch details for selected tour.' },
-//       {
-//         status: 500,
-//       }
-//     );
-//   } else {
-//     const resData = await response.json();
-//     return resData.tour;
-//   }
-// }
+  if (!response.ok) {
+    throw json(
+      { message: 'Could not fetch details for selected tour.' },
+      {
+        status: 500,
+      }
+    );
+  } else {
+    const resData = await response.json();
+    return resData.tour;
+  }
+}
